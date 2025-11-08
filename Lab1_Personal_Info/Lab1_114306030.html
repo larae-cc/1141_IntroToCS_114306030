@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+  <!-- Requirement #1 -->
+  <table border="1" width="600">
+    <tr>
+      <!-- 第一列：跨三欄放表格名稱 -->
+      <td colspan="3" align="center"><strong>About--114306030
+      </strong></td>
+    </tr>
+
+    <tr>
+      <!-- 第一欄：圖片，跨三列 -->
+      <td rowspan="3" align="center">
+        <img src="photo.jpg" alt="personal photo" width="150"><br>
+        personal photo
+      </td>
+
+      <!-- 第二欄：Name & Gender -->
+      <td colspan="2">
+        Name: <input type="text" name="name"><br>
+        Gender:
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="other">Other
+      </td>
+    </tr>
+
+    <tr>
+      <!-- 第二列：County & Birthday -->
+      <td>
+        County:
+        <select name="county">
+          <option value="taipei">Taipei</option>
+          <option value="tainan">Tainan</option>
+          <option value="taichung">Taichung</option>
+          <option value="taoyuan">Taoyuan</option>
+        </select>
+      </td>
+      <td>
+        Birthday: <input type="date" name="birthday">
+      </td>
+    </tr>
+
+    <tr>
+      <!-- 第三列：E-mail -->
+      <td colspan="2">
+        E-mail: <input type="email" name="email">
+      </td>
+    </tr>
+	</table>
+ 
+
+  <!-- Requirement #2 -->
+  <table border="1" width="600">
+    <tr>
+      <td><strong>Hobby</strong></td>
+      <td>
+        <input type="checkbox" name="hobby" value="swimming">Swimming
+        <input type="checkbox" name="hobby" value="volleyball">Volleyball
+        <input type="checkbox" name="hobby" value="movie">Movie
+        <input type="checkbox" name="hobby" value="game">Game
+        <input type="checkbox" name="hobby" value="sleep">Sleep
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Skill</strong></td>
+      <td>
+        <input type="checkbox" name="skill" value="java">Java
+        <input type="checkbox" name="skill" value="html">HTML
+        <input type="checkbox" name="skill" value="python">Python
+        <input type="checkbox" name="skill" value="office">Microsoft Office
+        <input type="checkbox" name="skill" value="premiere">Premiere
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Say something</strong></td>
+      <td>
+        <textarea name="comment" rows="4" cols="50" placeholder="Say something here."></textarea>
+      </td>
+    </tr>
+	 
+	 <tr>
+	   <td colspan="2">
+	   <input type="submit" value="提交">
+	      <input type="reset" value="重設">
+	   </td>
+     </tr>
+  </table>
+
+</body>
+</html>
