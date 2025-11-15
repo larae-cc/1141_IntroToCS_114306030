@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: #f0ede9;
+    font-family: sans-serif;
+}
+
+/* Header 區塊 */
+.header {
+    background-color: lightblue;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 40px;
+    font-family: serif;
+    margin: 0;
+}
+
+.header p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+/* 上方導覽列 navbar */
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    background-color: #4e4c48;
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* 每一個 li */
+.navbar li {
+    position: relative;
+    padding: 0 100px;
+}
+
+/* 每一個超連結外觀 */
+.navbar a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;      
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+/* Dropdown 區塊 */
+.dropdown {
+    position: relative;
+}
+
+/* 下拉選單的內容，預設隱藏 */
+.dropdown-content {
+    display: none;              /* 一開始不要顯示 */
+    position: absolute;
+    top: 100%;                  /* 接在主選單下面 */
+    left: 0;
+    background-color: #4e4c48;
+    border-radius: 8px;
+    min-width: 220px;
+    padding: 5px 0;
+}
+
+/* 下拉選單裡每一列 */
+.dropdown-content a {
+    display: block;
+    font-size: 18px;
+    color: white;
+    padding: 8px 16px;
+}
+
+.dropdown-content a:hover {
+    background-color:#4e4c48;
+}
+
+/* 鼠標到「Services」時顯示 dropdown */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 下方內文區塊 */
+.content {
+    padding: 20px;
+}
+
+/* @media all*/
+@media all {
+    body {
+        background-color: #f0ede9;
+    }
+}
+
+/* @media print */
+@media print {
+    body {
+        background-color: white;   /* 列印時白底 */
+        color: black;              /* 列印時黑字 */
+    }
+}
