@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1A2B Game</title>
+
+    <!-- 簡單排版 -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #game-container {
+            margin-top: 10px;
+        }
+        #guess-input {
+            width: 150px;
+            padding: 5px;
+        }
+        #record {
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>114306030_HW6_1A2B</h1>
+
+    <div id="game-container">
+        <label for="guess-input">Enter 4 unique numbers</label>
+        <input type="text" id="guess-input" maxlength="4">
+        <button onclick="play()">Guess!</button>
+    </div>
+
+    <hr>
+
+    <div id="record">
+        <strong>Game Record：</strong>
+    </div>
+
+    <script>
+        // 產生答案（四個不重複的 0~9 數字）
+        var answer = generateAnswer();
+        var count = 0; // 猜測次數
+
+    // function generateAnswer() 
+        // 隨機產生四個不重複的數字字串（如 "5937"）
+        function generateAnswer() {
+            var digits = ['0','1','2','3','4','5','6','7','8','9'];
+            var ansArr = [];
+
+            while (ansArr.length < 4) {
+                var idx = Math.floor(Math.random() * digits.length); // 0~剩下長度-1
+                ansArr.push(digits[idx]);   // 加進答案陣列
+                digits.splice(idx, 1);      // 從可選的數字中移除，避免重複
+            }
+
+            return ansArr.join('');         // 變成字串回傳
+        }
+
+    // function isValid(str) 
+        // 檢查輸入是否：1. 剛好 4 碼  2. 全部都是數字  3. 不可重複
+        function isValid(str) {
+            // 去頭尾空白
+            str = str.trim();
+
+            // 長度檢查
+            if (str.length !== 4) {
+                alert("請輸入剛好 4 位數字！");
+                return false;
+            }
+
+            // 是否全部為數字
+            if (!/^\d{4}$/.test(str)) {
+                alert("請輸入全部為數字！");
+                return false;
+            }
+
+            // 檢查是否有重複數字
+            for (var i = 0; i < 4; i++) {
+                for (var j = i + 1; j < 4; j++) {
+                    if (str[i] === str[j]) {
+                        alert("4 個數字不能重複！");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+    // function checkAB(guess, ans)
+        // 計算幾 A 幾 B，回傳像 "2A1B" 的字串
+        function checkAB(guess, ans) {
+            var A = 0;
+            var B = 0;
+
+            for (var i = 0; i < 4; i++) {
+                if (guess[i] === ans[i]) {
+                    A++; // 數字位置都對
+                } else if (ans.indexOf(guess[i]) !== -1) {
+                    B++; // 數字有在答案裡，但位置不對
+                }
+            }
+
+            return A + "A" + B + "B";
+        }
+
+    // function play() 
+        // 每按一次 Guess! 就會跑一次這個函式
+        function play() {
+            var inputField = document.getElementById("guess-input");
+            var guess = inputField.value.trim(); // 使用者輸入
+
+            // 先檢查是否合法
+            if (!isValid(guess)) {
+                inputField.value = "";
+                return; // 不合法就結束這次，不計算次數
+            }
+
+            count++; // 合法 → 次數 +1
+
+            var result = checkAB(guess, answer); // 算幾 A 幾 B
+            var recordDiv = document.getElementById("record");
+
+            // 把這次的結果加到紀錄區
+            recordDiv.innerHTML += "\n第 " + count + " 次: " + guess + " → " + result;
+
+            // 清空輸入框，方便下一次輸入
+            inputField.value = "";
+
+            // 全對：4A0B → 遊戲成功
+            if (result === "4A0B") {
+                alert("恭喜你答對了！\n答案是 " + answer + "。\n你總共猜了 " + count + " 次。");
+            }
+        }
+
+        // 讓輸入框按 Enter 也能送出
+        document.getElementById("guess-input").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                play();
+            }
+        });
+    </script>
+
+</body>
+</html>
