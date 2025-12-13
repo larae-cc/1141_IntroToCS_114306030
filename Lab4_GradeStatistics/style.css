@@ -1,0 +1,70 @@
+/* 基本排版 */
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    margin: 0;
+}
+
+/* 標題 */
+.title {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+/* 輸入區 */
+.input-area {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 140px;
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+button {
+    padding: 9px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.table-wrap {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1200px;   
+    margin: 0 auto;   
+}
+
+th, td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+
+thead th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tfoot {
+    font-weight: bold;
+}
